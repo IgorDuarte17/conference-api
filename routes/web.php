@@ -14,3 +14,12 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+$router->group(['prefix' => 'api'], function() use($router){
+    $router->get('/talks', 'TalkController@index');
+    $router->get('/talk/{id}', 'TalkController@show');
+    $router->post('/talk', 'TalkController@create');
+    $router->put('/talk/{id}', 'TalkController@update');
+    $router->delete('/talk/{id}', 'TalkController@destroy');
+    });
