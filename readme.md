@@ -1,21 +1,37 @@
-# Lumen PHP Framework
+## Conference API
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+> A simple Lumen API for talks at PHP Conference Brazil 2019
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
 
-## Official Documentation
+### About
+- An endpoint for Talks  
+- An endpoint for Speakers
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+### Stack: 
 
-## Security Vulnerabilities
+#### Backend
+- PHP 7.2^
+- Lumen 6
+- Composer
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+#### Database
+- MySQL 5.8^
 
-## License
+---
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Installation
+
+#### Prerequisite
+- config file `.env`
+- create local database  
+
+#### Backend
+- $ composer install  
+
+---
+
+### Maintainer
+Igor Santos – [@IgorSantoos17](https://twitter.com/IgorSantoos17)
+
+
+This project is `Open Source` and contains `MIT License`.
