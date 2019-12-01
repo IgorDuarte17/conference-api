@@ -22,4 +22,12 @@ $router->group(['prefix' => 'api'], function() use($router){
     $router->post('/talk', 'TalkController@create');
     $router->put('/talk/{id}', 'TalkController@update');
     $router->delete('/talk/{id}', 'TalkController@destroy');
-    });
+});
+
+$router->group(['prefix' => 'api'], function() use($router){
+    $router->get('/speakers', 'SpeakerController@index');
+    $router->get('/speaker/{id}', 'SpeakerController@show');
+    $router->post('/speaker', 'SpeakerController@create');
+    $router->put('/speaker/{id}', 'SpeakerController@update');
+    $router->delete('/speaker/{id}', 'SpeakerController@destroy');
+});
