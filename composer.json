@@ -32,11 +32,28 @@
             "tests/"
         ]
     },
+
     "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        "php-loc": [
+            "php vendor/phploc/phploc/phploc app/http/Controllers"
+        ],
+        "php-cs": [
+            "phpcs app/http/controllers"
+        ],
+        "phpinsights": [
+            "vendor\\bin\\phpinsights"
+        ],
+        "php-metrics": [
+            "phpmetrics --report-html=myreport ."
+        ],
+        "php-cs-fixer": [
+            "php-cs-fixer fix app/http/controllers --rules=@PSR2 --allow-risky yes"
+        ],
+        "phpstan": [
+            "vendor\\bin\\phpstan analyse app/http/controllers --level 7"
         ]
     },
+
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
