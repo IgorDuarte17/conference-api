@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Speaker;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class SpeakerController extends Controller
 {
@@ -11,14 +14,43 @@ class SpeakerController extends Controller
     {
         $speakers = Speaker::all();
 
-        return response()->json($speakers);
+        if( $speakers->isEmpty() )
+        {
+            return response()->json(null, 404);
+        }
+
+        return response()->json($speakers, 200);
     }
 
-    public function show($id)
+    public function show($id, Request $request)
     {
-        $Speaker = Speaker::find($id);
+        $rules = [
+            'id' => 'required|integer|min:1|max:2147483647',
+        ];
 
-        return response()->json($Speaker);
+        try {
+
+            $request->merge(['id' => $id]);
+            $this->validate($request, $rules);
+
+        } catch (ValidationException $e) {
+
+            return response()->json([
+                'error' => $e->getResponse()->original
+            ], 422);
+        }
+
+        /**
+         * Manipulate data
+         */
+        $speaker = Speaker::find($id);
+        if(!$speaker)
+        {
+            return response()->json(null, 404);
+        }
+
+        return response()->json($speaker);
+
     }
 
     public function create(Request $request)
