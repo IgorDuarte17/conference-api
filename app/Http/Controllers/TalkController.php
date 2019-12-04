@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Talk;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class TalkController extends Controller
 {
@@ -11,12 +14,40 @@ class TalkController extends Controller
     {
         $talks = Talk::all();
 
-        return response()->json($talks);
+        if( $talks->isEmpty() )
+        {
+            return response()->json(null, 404);
+        }
+
+        return response()->json($talks, 200);
     }
 
-    public function show($id)
+    public function show($id, Request $request)
     {
+        $rules = [
+            'id' => 'required|integer|min:1|max:2147483647',
+        ];
+
+        try {
+
+            $request->merge(['id' => $id]);
+            $this->validate($request, $rules);
+
+        } catch (ValidationException $e) {
+
+            return response()->json([
+                'error' => $e->getResponse()->original
+            ], 422);
+        }
+
+        /**
+         * Manipulate data
+         */
         $talk = Talk::find($id);
+        if(!$talk)
+        {
+            return response()->json(null, 404);
+        }
 
         return response()->json($talk);
     }
