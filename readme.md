@@ -6,12 +6,14 @@
 ### About
 - An endpoint for Talks  
 - An endpoint for Speakers
+- Tests and Code Coverage
 
 ### Stack: 
 
 #### Backend
 - PHP 7.2^
 - Lumen 6
+- Codeception 3.1
 - Composer
 
 #### Database
@@ -28,8 +30,16 @@
 #### Backend
 - $ composer install  
 
+---
+
 ### Run
+
+#### Aplication
 - $ php -S localhost:8000 -t public
+
+#### Tests and Code Coverage
+- $ composer code-tests
+- $ composer code-coverage
 
 ---
 
