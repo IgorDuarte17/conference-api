@@ -24,7 +24,7 @@ class TalkTestCest
 
         $I->haveHttpHeader('content-type', 'application/json');
 
-        $I->sendPOST('Talk', [
+        $I->sendPOST('talk', [
             'title'=>'Teste com CodeCeption',
             'description'=>'Testes automatizados'
         ]);
