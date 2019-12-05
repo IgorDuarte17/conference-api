@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Adding c3.php for code coverage during codeception tests
+ * ref: https://github.com/Codeception/c3
+ */
+
+require __DIR__.'/../c3.php';
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
