@@ -1,3 +1,4 @@
+actor: Tester
 paths:
     tests: tests
     output: tests/_output
@@ -8,3 +9,25 @@ actor_suffix: Tester
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+coverage:
+    enabled: true
+    remote: false
+    include:
+        - app/*
+    exclude:
+        - app/config/*
+        - app/database/*
+        - app/lang/*
+        - app/storage/*
+        - app/tests/*
+    show_uncovered: false
+    show_only_summary: false
+    remote_context_options:
+        http:
+            timeout: 60
+        ssl:
+            verify_peer: false
+modules:
+    config:
+        REST:
+            url: http://localhost:8000/api/
