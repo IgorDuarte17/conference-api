@@ -53,6 +53,12 @@
         ],
         "phpstan": [
             "vendor\\bin\\phpstan analyse app/http/controllers --level 7"
+        ],
+        "code-tests": [
+            "vendor\\bin\\codecept run api"
+        ],
+        "code-coverage": [
+            "vendor\\bin\\codecept run api --coverage --coverage-html"
         ]
     },
 
